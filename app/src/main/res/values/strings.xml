@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">CurrencyConverter</string>
+    <string name="cad">CAD</string>
+    <string name="usd">USD</string>
+    <string name="eur">EUR</string>
+    <string name="jpy">JPY</string>
+    <string name="currency_choice">Choose the currency you want to convert from USD.</string>
+    <string name="next">Next</string>
+    <string name="back">Back</string>
+    <string name="from_usd">To USD</string>
+    <string name="to_jpy">TO JPY</string>
+    <string name="to_eur">To EUR</string>
+    <string name="to_cad">To CAD</string>
+</resources>
