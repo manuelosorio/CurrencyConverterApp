@@ -17,8 +17,8 @@ public class ConversionActivity extends AppCompatActivity {
 
     Bundle extras;
     double rate;
-    EditText inputTo;
-    EditText inputFrom;
+    EditText inputTarget;
+    EditText inputBase;
 
     @SuppressLint("SetTextI18n")
     @Override
@@ -29,15 +29,15 @@ public class ConversionActivity extends AppCompatActivity {
         TextView currencyLabelTwo = findViewById(R.id.currency_label_two);
 
         extras = getIntent().getExtras();
-        this.inputFrom = findViewById(R.id.input_from);
-        inputFrom.setText("1.00");
-        this.inputTo = findViewById(R.id.input_to);
+        this.inputBase = findViewById(R.id.input_base);
+        inputBase.setText("1.00");
+        this.inputTarget = findViewById(R.id.input_target);
         if (extras != null) {
             String currency = extras.getString("currency");
             this.rate = extras.getDouble("rate");
 
             BigDecimal rounded = new BigDecimal(rate).setScale(4, RoundingMode.HALF_UP);
-            inputTo.setText(rounded.toString());
+            inputTarget.setText(rounded.toString());
             switch (currency) {
                 case ("JPY"): {
                     currencyLabelTwo.setText(R.string.jpy);
@@ -63,7 +63,7 @@ public class ConversionActivity extends AppCompatActivity {
     public void addEventListeners() {
 
         try {
-                this.inputFrom.addTextChangedListener(new TextWatcher() {
+                this.inputBase.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {
                     }
@@ -74,19 +74,19 @@ public class ConversionActivity extends AppCompatActivity {
 
                     @Override
                     public void afterTextChanged(Editable s) {
-                        String valueFrom = inputFrom.getText().toString();
-                        if (getCurrentFocus().getId() == inputFrom.getId()) {
+                        String valueFrom = inputBase.getText().toString();
+                        if (getCurrentFocus().getId() == inputBase.getId()) {
                             if (!valueFrom.equals("")) {
                                 double value = Double.parseDouble(valueFrom) * rate;
                                 BigDecimal rounded = new BigDecimal(value).setScale(4, RoundingMode.HALF_UP);
-                                inputTo.setText(rounded.toString());
+                                inputTarget.setText(rounded.toString());
                             }
                         }
                     }
                 });
 
 
-                this.inputTo.addTextChangedListener(new TextWatcher() {
+                this.inputTarget.addTextChangedListener(new TextWatcher() {
                     @Override
                     public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
 
@@ -95,12 +95,12 @@ public class ConversionActivity extends AppCompatActivity {
 
                     @Override
                     public void afterTextChanged(Editable s) {
-                        String valueTo = inputTo.getText().toString();
-                        if (getCurrentFocus().getId() == inputTo.getId()) {
+                        String valueTo = inputTarget.getText().toString();
+                        if (getCurrentFocus().getId() == inputTarget.getId()) {
                             if (!valueTo.equals("")) {
                                 double value = Double.parseDouble(valueTo) / rate;
                                 BigDecimal rounded = new BigDecimal(value).setScale(4, RoundingMode.HALF_UP);
-                                inputFrom.setText(rounded.toString());
+                                inputBase.setText(rounded.toString());
                             }
                         }
                     }

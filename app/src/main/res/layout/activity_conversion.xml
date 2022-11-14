@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".ConversionActivity">
 
-
     <LinearLayout
         android:layout_width="0dp"
         android:layout_height="0dp"
@@ -37,99 +36,60 @@
         <GridLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="4"
-            android:columnCount="16"
-            android:rowCount="8"
             android:layout_gravity="center"
             android:layout_marginVertical="100dp"
-        >
+            android:layout_weight="4"
+            android:columnCount="16"
+            android:rowCount="8">
 
             <TextView
                 android:id="@+id/currency_label_one"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/input_from"
-                android:text="@string/usd"
-                android:layout_column="0"
-                android:layout_columnWeight="0"
-                android:layout_columnSpan="1"
                 android:layout_row="0"
-            />
+                android:layout_column="0"
+                android:layout_columnSpan="1"
+                android:layout_columnWeight="0"
+                android:labelFor="@id/input_base"
+                android:text="@string/usd" />
 
             <EditText
-                android:id="@+id/input_from"
+                android:id="@+id/input_base"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_row="0"
                 android:layout_column="2"
                 android:layout_columnSpan="1"
                 android:layout_columnWeight="8"
-                android:layout_row="0"
+                android:layout_marginStart="15sp"
+                android:layout_marginEnd="100sp"
                 android:autofillHints="1.0"
                 android:inputType="numberDecimal"
                 android:minHeight="48dp"
-                android:layout_marginStart="15sp"
-                android:layout_marginEnd="15sp"
-
-            />
-
-<!--            <Button-->
-<!--                android:id="@+id/button_from"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_row="0"-->
-<!--                android:layout_column="9"-->
-<!--                android:layout_columnWeight="1"-->
-<!--                android:layout_columnSpan="1"-->
-<!--                android:buttonTint="@color/purple_500"-->
-<!--                android:paddingLeft="15sp"-->
-<!--                android:paddingTop="5sp"-->
-<!--                android:paddingRight="15sp"-->
-<!--                android:paddingBottom="5sp"-->
-<!--                android:text="@string/from_usd"-->
-<!--                android:textSize="14sp"-->
-<!--                android:layout_marginTop="10sp"-->
-<!--                android:layout_marginBottom="50sp"-->
-<!--            />-->
+                tools:ignore="DuplicateSpeakableTextCheck" />
 
             <!-- Row Two -->
             <TextView
                 android:id="@+id/currency_label_two"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:labelFor="@id/input_to"
-                android:text="@string/jpy"
                 android:layout_row="2"
                 android:layout_column="0"
-            />
+                android:labelFor="@id/input_target"
+                android:text="@string/jpy" />
 
             <EditText
-                android:id="@+id/input_to"
-                android:autofillHints="1.0"
-                android:inputType="numberDecimal"
-                android:minHeight="48dp"
+                android:id="@+id/input_target"
+                android:layout_row="2"
                 android:layout_column="2"
                 android:layout_columnSpan="1"
                 android:layout_columnWeight="8"
-                android:layout_row="2"
                 android:layout_marginStart="15sp"
-                android:layout_marginEnd="15sp"
-            />
-
-<!--            <Button-->
-<!--                android:id="@+id/button_to"-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_column="9"-->
-<!--                android:layout_columnWeight="1"-->
-<!--                android:layout_columnSpan="1"-->
-<!--                android:buttonTint="@color/purple_500"-->
-<!--                android:paddingLeft="15sp"-->
-<!--                android:paddingTop="5sp"-->
-<!--                android:paddingRight="15sp"-->
-<!--                android:paddingBottom="5sp"-->
-<!--                android:text="@string/to_jpy"-->
-<!--                android:textSize="14sp"-->
-<!--            />-->
+                android:layout_marginEnd="100sp"
+                android:autofillHints="1.0"
+                android:inputType="numberDecimal"
+                android:minHeight="48dp"
+                tools:ignore="DuplicateSpeakableTextCheck" />
         </GridLayout>
     </LinearLayout>
 
